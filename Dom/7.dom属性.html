@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li mysrc="hello" data-id="123" class="li1" id="list">1</li>
+  </ul>
+  <script>
+    var aList = document.getElementById("list");
+    // aList.onclick = function(){
+    //   var attr1 = aList.getAttribute("class");
+    //   aList.setAttribute("class",attr1+" active")
+    //   console.log(attr1);
+    // }
+
+    aList.onclick = function(e){
+      aList.classList.add('active')
+      console.log(e);
+      
+      // location.replace("http://www.baidu.com")
+    }
+  
+  
+  </script>
+  
+</body>
+</html>

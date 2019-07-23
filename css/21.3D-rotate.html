@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      perspective: 1000px;
+      /* perspective-origin:  0 0; */
+    }
+    .div1{
+      width: 200px;
+      height: 200px;
+      border:1px dashed #666;
+      transform-style: preserve-3d;
+    }
+    
+    .div3{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      transform: rotateY(180deg) translateZ(1px);
+      position: absolute;
+      top: 0;
+    }
+    .div2{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      transition: all 1s linear;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .div2:hover{
+      transform: rotateY(180deg);
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="div1">
+    <div class="div2">
+      fellow32
+      <div class="div3">
+        唯创网讯
+      </div>
+    </div>
+  </div>
+</body>
+</html>
