@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="./js/vue.js"></script>
+    <style>
+        #div1 {
+            width: 1000px;
+            height: 900px;
+        }
+
+        .active {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <input type="text">
+        <button>查询</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>选择</th>
+                    <th>名称</th>
+                    <th>价格</th>
+                    <th><button>删除</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in user" v-bind:class="{active:item.isActive}"
+                    @click="item.isActive=!item.isActive">
+                    <th scope="row"><input type="checkbox" name="cb" v-model="checkArr" :value="item.id"></th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td><button>删除</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el: "#div1",
+            data: {
+                user: [{
+                    id: 1,
+                    name: "衣服",
+                    price: "123",
+                    isActive: false,
+                }, {
+                    name: "裤子",
+                    price: "123",
+                    isActive: false,
+                }, {
+                    name: "鞋",
+                    price: "123",
+                    isActive: false,
+                }, {
+                    name: "帽子",
+                    price: "123",
+                    isActive: false,
+                }, {
+                    name: "手套",
+                    price: "123",
+                    isActive: false,
+                }, {
+                    name: "袜子",
+                    price: "123",
+                    isActive: false,
+                }
+                ],
+            },
+            methods: {
+
+            },
+            computed: {
+                checkArr() {
+                    let arr = [];
+                    this.user.forEach(function (val, index) {
+                        if (val.isActive) {
+                            arr.push(val.id);
+                        }
+                    })
+                    return arr
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
