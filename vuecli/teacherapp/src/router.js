@@ -11,22 +11,34 @@ export default new Router({
     {
       path     : '/',
       name     : 'movie',
-      component: () => import('./views/movie/Movie.vue')
-    },
-    {
-      path     : '/book',
-      name     : 'book',
-      component: () => import('./views/book/Book.vue')
-    },
-    {
-      path     : '/music',
-      name     : 'music',
-      component: () => import('./views/music/Music.vue')
-    },
-    {
-      path     : '/talk',
-      name     : 'talk',
-      component: () => import('./views/talk/Talk.vue')
-    },
+      component: () => import('./views/movie/Movie.vue'),
+      // children:[
+      //   {
+      //     path:"/movie/detail",
+      //     name:"moviedetail",
+      //     component:()=> import("./views/movie/MovieDetail.vue")
+      //   }
+      // ]
+    },{
+      path:"/music",
+      name:"music",
+      component:() => import("./views/music/Music.vue")
+    },{
+      path:"/book",
+      name:"book",
+      component:() => import("./views/book/Book.vue")
+    },{
+      path:"/talk",
+      name:"talk",
+      component:() => import("./views/talk/Talk.vue")
+    },{
+      path:"/movie/detail",
+      name:"moviedetail",
+      component:()=> import("./views/movie/MovieDetail.vue")
+    },{
+      path:"/book/detail",
+      name:"bookdetail",
+      component:()=> import("./views/book/BookDetail.vue")
+    }
   ]
 })
