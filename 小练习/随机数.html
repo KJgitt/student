@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box">
+        100
+    </div>
+    
+    <button onclick="foo()">点击抽取</button>
+    <script>
+        var ibox=document.getElementById("box");
+        var sjs;
+        var all=100;
+        var peo=10;
+        function foo(){
+            sjs=Math.random()*100;
+            sjs=parseInt(sjs);
+            peo--;
+            if(peo>=0)
+            {
+                while(sjs<5   ||   all-sjs< peo*5)
+                {
+                    sjs=Math.random()*100;
+                    sjs=parseInt(sjs);
+                }
+                if(peo==0)
+                {
+                    sjs=all
+                }
+                console.log(sjs);
+                all=all-sjs;
+                ibox.innerHTML=sjs;
+            }
+            else
+            {
+                console.log("没了！");
+            }
+        }
+    </script>
+</body>
+</html>
